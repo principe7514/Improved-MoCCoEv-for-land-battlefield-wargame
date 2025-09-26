@@ -296,14 +296,14 @@ for i=1:nPop
 end
 for it = 1:MaxIt
     %计算对手种群改变以后的父代函数值
-    % for i=1:nPop
-    %     fitness1s=zeros(nPop,2);
-    %     fitness1=0;
-    %     for j=1:nPop
-    %         fitness1 = fitness1+CostFunction(pop1(i).Position,pop2(j).Position,stat1,stat2);
-    %     end
-    %     pop1(i).Cost=fitness1/nPop;
-    % end
+    for i=1:nPop
+         fitness1s=zeros(nPop,2);
+         fitness1=0;
+         for j=1:nPop
+             fitness1 = fitness1+CostFunction(pop1(i).Position,pop2(j).Position,stat1,stat2);
+         end
+         pop1(i).Cost=fitness1/nPop;
+    end
 
     for t=t1+1:t1+tao1
         % Crossover
@@ -427,14 +427,14 @@ for it = 1:MaxIt
     t1=t1+tao1;
 
     %计算对手种群改变以后的父代函数值
-    % for i=1:nPop
-    %     fitness2s=zeros(nPop,2);
-    %     fitness2=0;
-    %     for j=1:nPop
-    %         fitness2=fitness2+CostFunction(pop2(i).Position,pop1(j).Position,stat2,stat1);
-    %     end
-    %     pop2(i).Cost=fitness2/nPop;
-    % end
+    for i=1:nPop
+         fitness2s=zeros(nPop,2);
+         fitness2=0;
+         for j=1:nPop
+             fitness2=fitness2+CostFunction(pop2(i).Position,pop1(j).Position,stat2,stat1);
+         end
+         pop2(i).Cost=fitness2/nPop;
+     end
 
     for t=t2+1:t2+tao2
         % Crossover
